@@ -2,9 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Madsense.XamarinForms.Sample.MainPage">
-
-    <Label Text="Welcome to MADSENSE Sample!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
-
+    <ListView x:Name="ListViewTest">
+        <ListView.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:String>Test1</x:String>
+                <x:String>Test2</x:String>
+                <x:String>Test3</x:String>
+                <x:String>Test4</x:String>
+                <x:String>Test5</x:String>
+                <x:String>Test6</x:String>
+                <x:String>Test7</x:String>
+                <x:String>Test8</x:String>
+                <x:String>Test9</x:String>
+            </x:Array>
+        </ListView.ItemsSource>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding}" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Text="Detail">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.DetailCommand, Source={x:Reference Name=ListViewTest}}" />
+                                <ClickGestureRecognizer Command="{Binding BindingContext.DetailCommand, Source={x:Reference Name=ListViewTest}}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
