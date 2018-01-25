@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace Madsense.XamarinForms.Sample
+﻿namespace Madsense.XamarinForms.Sample
 {
-	public partial class MainPage : ContentPage
+	public partial class MainPage
 	{
 		public MainPage()
 		{
 			InitializeComponent();
+            BindingContext = new MainPageViewModel();
 		}
 	}
 }
