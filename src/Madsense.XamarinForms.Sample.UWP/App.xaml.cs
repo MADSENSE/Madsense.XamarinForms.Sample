@@ -6,6 +6,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using FFImageLoading.Forms.WinUWP;
 
 namespace Madsense.XamarinForms.Sample.UWP
 {
@@ -40,6 +41,7 @@ namespace Madsense.XamarinForms.Sample.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
+                CachedImageRenderer.Init();
                 Xamarin.Forms.Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)

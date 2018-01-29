@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:sample="clr-namespace:Madsense.XamarinForms.Sample;assembly=Madsense.XamarinForms.Sample"
+             x:Class="Madsense.XamarinForms.Sample.ModalPage">
+    <ContentPage.BindingContext>
+        <sample:ModalPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <forms:CachedImage Source="image.png" />
+        <Button Grid.Row="1"
+                Text="Close"
+                Command="{Binding CloseCommand}" />
+    </Grid>
+</ContentPage>

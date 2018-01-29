@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using FFImageLoading.Forms.Mac;
 using Foundation;
 using Xamarin.Forms.Platform.MacOS;
 
@@ -27,6 +28,7 @@ namespace Madsense.XamarinForms.Sample.Mac
 
         public override void DidFinishLaunching(NSNotification notification)
         {
+            CachedImageRenderer.Init();
             Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             base.DidFinishLaunching(notification);

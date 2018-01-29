@@ -1,4 +1,5 @@
-﻿using UIKit;
+﻿using FFImageLoading.Forms.Touch;
+using UIKit;
 using Foundation;
 
 namespace Madsense.XamarinForms.Sample.iOS
@@ -18,6 +19,7 @@ namespace Madsense.XamarinForms.Sample.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            CachedImageRenderer.Init();
             Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

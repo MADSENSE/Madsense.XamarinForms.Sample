@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sample="clr-namespace:Madsense.XamarinForms.Sample;assembly=Madsense.XamarinForms.Sample"
              x:Class="Madsense.XamarinForms.Sample.MainPage">
+    <ContentPage.BindingContext>
+        <sample:MainPageViewModel />
+    </ContentPage.BindingContext>
 
-    <Label Text="Welcome to MADSENSE Sample!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
+    <Button Text="Open Modal"
+            Command="{Binding OpenCommand}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
 
 </ContentPage>

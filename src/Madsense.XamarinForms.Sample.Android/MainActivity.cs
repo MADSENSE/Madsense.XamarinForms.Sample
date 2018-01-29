@@ -1,6 +1,7 @@
 ﻿using Android.OS;
 using Android.App;
 using Android.Content.PM;
+using FFImageLoading.Forms.Droid;
 
 namespace Madsense.XamarinForms.Sample.Droid
 {
@@ -14,6 +15,7 @@ namespace Madsense.XamarinForms.Sample.Droid
 
             base.OnCreate(bundle);
 
+            CachedImageRenderer.Init(true);
             Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }
