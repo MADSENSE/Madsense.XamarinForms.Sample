@@ -149,11 +149,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.8" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.3.4</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Madsense.XamarinForms.Sample\Madsense.XamarinForms.Sample.csproj">

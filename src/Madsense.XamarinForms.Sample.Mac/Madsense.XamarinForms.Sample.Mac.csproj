@@ -61,10 +61,10 @@
     <Reference Include="Xamarin.Mac" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.3.4</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
     <PackageReference Include="WebP.Touch">
       <Version>1.0.7</Version>
     </PackageReference>
