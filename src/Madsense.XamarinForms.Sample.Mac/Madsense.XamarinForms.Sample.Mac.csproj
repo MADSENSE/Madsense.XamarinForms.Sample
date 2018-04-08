@@ -63,10 +63,10 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
-      <Version>2.3.4</Version>
+      <Version>2.3.6</Version>
     </PackageReference>
     <PackageReference Include="WebP.Touch">
-      <Version>1.0.7</Version>
+      <Version>1.0.8</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -83,9 +83,7 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
