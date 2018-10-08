@@ -1,4 +1,6 @@
-﻿namespace Madsense.XamarinForms.Sample
+﻿using Prism.Ioc;
+
+namespace Madsense.XamarinForms.Sample
 {
 	public partial class App
 	{
@@ -6,7 +8,7 @@
 		{
 			InitializeComponent();
 
-			MainPage = new Madsense.XamarinForms.Sample.MainPage();
+			MainPage = new MainPage();
 		}
 
 		protected override void OnStart ()
@@ -19,7 +21,17 @@
 			// Handle when your app sleeps
 		}
 
-		protected override void OnResume ()
+	    protected override void RegisterTypes(IContainerRegistry containerRegistry)
+	    {
+            containerRegistry.RegisterForNavigation<SecondView>();
+	    }
+
+	    protected override void OnInitialized()
+	    {
+	        
+	    }
+
+	    protected override void OnResume ()
 		{
 			// Handle when your app resumes
 		}

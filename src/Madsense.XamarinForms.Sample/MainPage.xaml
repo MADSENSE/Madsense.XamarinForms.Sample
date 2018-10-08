@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="Madsense.XamarinForms.Sample.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Madsense.XamarinForms.Sample.MainPage">
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:xaml="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+             xmlns:sample="clr-namespace:Madsense.XamarinForms.Sample;assembly=Madsense.XamarinForms.Sample"
+             x:Name="Main"
+             mvvm:ViewModelLocator.AutowireViewModel="True">
 
-    <Label Text="Welcome to MADSENSE Sample!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
+    <StackLayout Orientation="Vertical">
+        <Button Command="{xaml:NavigateTo 'SecondView'}" Text="NavigateToSecondView from MainPage" />
 
+        <sample:PartialView mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Main}" />
+    </StackLayout>
 </ContentPage>
