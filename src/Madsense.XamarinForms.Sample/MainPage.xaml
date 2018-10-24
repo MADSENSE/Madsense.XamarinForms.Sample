@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Madsense.XamarinForms.Sample.MainPage">
+             xmlns:sample="clr-namespace:Madsense.XamarinForms.Sample;assembly=Madsense.XamarinForms.Sample"
+             x:Class="Madsense.XamarinForms.Sample.MainPage"
+             NavigationPage.TitleView="{sample:TitleView}">
 
     <Label Text="Welcome to MADSENSE Sample!"
            VerticalOptions="Center"
