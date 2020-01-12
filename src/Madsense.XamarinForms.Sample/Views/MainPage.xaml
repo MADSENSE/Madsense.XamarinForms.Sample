@@ -10,18 +10,34 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <views:PartialViewA x:Key="SharedPartialViewA" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Root}" />
+            <views:PartialViewB x:Key="SharedPartialViewB" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Root}" />
 
             <ControlTemplate x:Key="FirstTemplate">
-                <ContentView Content="{StaticResource SharedPartialViewA}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Column="0" Content="{StaticResource SharedPartialViewA}" />
+                    <ContentView Grid.Column="1" Content="{StaticResource SharedPartialViewB}" />
+                </Grid>
             </ControlTemplate>
             <!--<ControlTemplate x:Key="SecondTemplate">
-                <ContentView BackgroundColor="Red" Content="{StaticResource SharedPartialViewA}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Column="1" Content="{StaticResource SharedPartialViewA}" />
+                    <ContentView Grid.Column="0" Content="{StaticResource SharedPartialViewB}" />
+                </Grid>
             </ControlTemplate>-->
             <ControlTemplate x:Key="SecondTemplate">
                 <CarouselView>
                     <CarouselView.ItemsSource>
                         <x:Array Type="{x:Type ContentView}">
-                            <ContentView BackgroundColor="Red" Content="{DynamicResource SharedPartialViewA}" />
+                            <ContentView Content="{DynamicResource SharedPartialViewA}" />
+                            <ContentView Content="{DynamicResource SharedPartialViewB}" />
                         </x:Array>
                     </CarouselView.ItemsSource>
                     <CarouselView.ItemTemplate>
