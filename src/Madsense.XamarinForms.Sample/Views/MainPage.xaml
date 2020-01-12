@@ -3,12 +3,16 @@
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Madsense.XamarinForms.Sample.Converters;assembly=Madsense.XamarinForms.Sample"
     xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:views="clr-namespace:Madsense.XamarinForms.Sample.Views;assembly=Madsense.XamarinForms.Sample"
     x:Name="Root">
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <converters:IsSmallerThanParameterConverter x:Key="IsSmallerThanParameterConverter" />
+            <x:Double x:Key="MinimumScreenWidth">768</x:Double>
+
             <views:PartialViewA x:Key="SharedPartialViewA" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Root}" />
             <views:PartialViewB x:Key="SharedPartialViewB" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Root}" />
 
@@ -59,10 +63,19 @@
         <Button Command="{Binding SwitchTemplateCommand}" Text="Switch Template" />
 
         <ContentView Grid.Row="1" ControlTemplate="{StaticResource FirstTemplate}">
-            <ContentView.Triggers>
+            <!--<ContentView.Triggers>
                 <MultiTrigger TargetType="ContentView">
                     <MultiTrigger.Conditions>
                         <BindingCondition Binding="{Binding IsFirstTemplate}" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ControlTemplate" Value="{StaticResource SecondTemplate}" />
+                </MultiTrigger>
+            </ContentView.Triggers>-->
+            <ContentView.Triggers>
+                <MultiTrigger TargetType="ContentView">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding Source={x:Reference Root}, Path=Width, Converter={StaticResource IsSmallerThanParameterConverter}, ConverterParameter={StaticResource MinimumScreenWidth}}" Value="True" />
+                        <BindingCondition Binding="{Binding Source={x:Reference Root}, Path=Width, Converter={StaticResource IsSmallerThanParameterConverter}, ConverterParameter=0}" Value="False" />
                     </MultiTrigger.Conditions>
                     <Setter Property="ControlTemplate" Value="{StaticResource SecondTemplate}" />
                 </MultiTrigger>
