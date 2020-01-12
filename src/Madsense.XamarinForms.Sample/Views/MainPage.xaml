@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:views="clr-namespace:Madsense.XamarinForms.Sample.Views;assembly=Madsense.XamarinForms.Sample"
+    x:Name="Root">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <views:PartialViewA x:Key="SharedPartialViewA" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Root}" />
+
+            <ControlTemplate x:Key="FirstTemplate">
+                <ContentView Content="{StaticResource SharedPartialViewA}" />
+            </ControlTemplate>
+            <!--<ControlTemplate x:Key="SecondTemplate">
+                <ContentView BackgroundColor="Red" Content="{StaticResource SharedPartialViewA}" />
+            </ControlTemplate>-->
+            <ControlTemplate x:Key="SecondTemplate">
+                <CarouselView>
+                    <CarouselView.ItemsSource>
+                        <x:Array Type="{x:Type ContentView}">
+                            <ContentView BackgroundColor="Red" Content="{DynamicResource SharedPartialViewA}" />
+                        </x:Array>
+                    </CarouselView.ItemsSource>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView Content="{Binding .}" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Command="{Binding SwitchTemplateCommand}" Text="Switch Template" />
+
+        <ContentView Grid.Row="1" ControlTemplate="{StaticResource FirstTemplate}">
+            <ContentView.Triggers>
+                <MultiTrigger TargetType="ContentView">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding IsFirstTemplate}" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ControlTemplate" Value="{StaticResource SecondTemplate}" />
+                </MultiTrigger>
+            </ContentView.Triggers>
+        </ContentView>
+    </Grid>
+</ContentPage>
