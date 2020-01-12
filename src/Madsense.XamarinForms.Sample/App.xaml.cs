@@ -1,13 +1,21 @@
-﻿namespace Madsense.XamarinForms.Sample
+﻿using Prism.DryIoc;
+using Prism.Ioc;
+
+namespace Madsense.XamarinForms.Sample
 {
-	public partial class App
+	public partial class App : PrismApplication
 	{
-		public App ()
-		{
+        protected override async void OnInitialized()
+        {
 			InitializeComponent();
 
-			MainPage = new Madsense.XamarinForms.Sample.MainPage();
-		}
+            await NavigationService.NavigateAsync($"/{nameof(MainPage)}");
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+        }
 
 		protected override void OnStart ()
 		{
@@ -19,7 +27,7 @@
 			// Handle when your app sleeps
 		}
 
-		protected override void OnResume ()
+        protected override void OnResume ()
 		{
 			// Handle when your app resumes
 		}
