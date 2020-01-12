@@ -11,6 +11,7 @@
         <StackLayout>
             <Label Text="{Binding Title}" />
             <Label Text="{Binding Id}" />
+            <CollectionView ItemsSource="{Binding Items}" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

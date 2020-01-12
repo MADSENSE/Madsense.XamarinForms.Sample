@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Madsense.XamarinForms.Sample.ViewModels
 {
@@ -8,5 +7,6 @@ namespace Madsense.XamarinForms.Sample.ViewModels
     {
         public string Title => "Title from PartialView B ViewModel";
         public string Id { get; } = Guid.NewGuid().ToString();
+        public string[] Items { get; } = Enumerable.Range(0, 100).Select(i => $"Item {i}").ToArray();
     }
 }

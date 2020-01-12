@@ -14,7 +14,11 @@ namespace Madsense.XamarinForms.Sample
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<Views.MainPage, ViewModels.MainPageViewModel>();
+            containerRegistry.Register<ViewModels.MainPageViewModel>();
+            containerRegistry.Register<ViewModels.PartialViewAViewModel>();
+            containerRegistry.Register<ViewModels.PartialViewBViewModel>();
+
+			containerRegistry.RegisterForNavigation<Views.MainPage, ViewModels.MainPageViewModel>();
         }
 
 		protected override void OnStart ()
