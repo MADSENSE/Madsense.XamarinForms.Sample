@@ -2,11 +2,53 @@
 <ContentPage
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Madsense.XamarinForms.Sample.Converters;assembly=Madsense.XamarinForms.Sample"
+    xmlns:views="clr-namespace:Madsense.XamarinForms.Sample.Views;assembly=Madsense.XamarinForms.Sample"
+    x:Name="Root">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IsSmallerThanParameterConverter x:Key="IsSmallerThanParameterConverter" />
+            <x:Double x:Key="SmallScreenWidth">768</x:Double>
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+            <views:ViewA x:Key="SharedViewA" />
+            <views:ViewB x:Key="SharedViewB" />
 
+            <ControlTemplate x:Key="LargeScreenTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ContentView Grid.Column="0" Content="{StaticResource SharedViewA}" />
+                    <ContentView Grid.Column="1" Content="{StaticResource SharedViewB}" />
+                </Grid>
+            </ControlTemplate>
+            <ControlTemplate x:Key="SmallScreenTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <ContentView Grid.Row="0" Content="{StaticResource SharedViewA}" />
+                    <ContentView Grid.Row="1" Content="{StaticResource SharedViewB}" />
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentView ControlTemplate="{StaticResource LargeScreenTemplate}">
+        <ContentView.Triggers>
+            <MultiTrigger TargetType="ContentView">
+                <MultiTrigger.Conditions>
+                    <BindingCondition Binding="{Binding Source={x:Reference Root}, Path=Width, Converter={StaticResource IsSmallerThanParameterConverter}, ConverterParameter={StaticResource SmallScreenWidth}}" Value="True" />
+                    <BindingCondition Binding="{Binding Source={x:Reference Root}, Path=Width, Converter={StaticResource IsSmallerThanParameterConverter}, ConverterParameter=0}" Value="False" />
+                </MultiTrigger.Conditions>
+
+                <Setter Property="ControlTemplate" Value="{StaticResource SmallScreenTemplate}" />
+            </MultiTrigger>
+        </ContentView.Triggers>
+    </ContentView>
 </ContentPage>
