@@ -14,16 +14,28 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Text="View B" />
+
+        <!--  By defining ItemTemplate in the CollectionView, the view turns blank when changing ControlTemplate  -->
         <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
-            <!--
-                By defining ItemTemplate in the CollectionView, the view turns blank when changing ControlTemplate.
-                Remove ItemTemplate definition and the problem doesn't occur
-            -->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Label Text="{Binding .}" />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <!--  No problem when no ItemTemplate defined on CollectionView  -->
+        <!--<CollectionView Grid.Row="1" ItemsSource="{Binding Items}" />-->
+
+        <!--  No problem with ListView and ItemTemplate  -->
+        <!--<ListView Grid.Row="1" ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding .}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
     </Grid>
 </ContentView>
