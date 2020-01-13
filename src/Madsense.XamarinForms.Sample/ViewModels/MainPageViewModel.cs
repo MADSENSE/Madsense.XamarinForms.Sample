@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Madsense.XamarinForms.Sample
+namespace Madsense.XamarinForms.Sample.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {

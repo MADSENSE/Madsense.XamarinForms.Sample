@@ -6,7 +6,7 @@
 		{
 			InitializeComponent();
 
-			MainPage = new Madsense.XamarinForms.Sample.MainPage();
+			MainPage = new Views.MainPage();
 		}
 
 		protected override void OnStart ()
