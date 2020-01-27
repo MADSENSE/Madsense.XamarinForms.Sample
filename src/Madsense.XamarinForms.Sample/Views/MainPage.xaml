@@ -14,7 +14,7 @@
                 <Grid
                     Margin="0"
                     Padding="0"
-                    BackgroundColor="Red"
+                    BackgroundColor="Green"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand">
                     <Label
@@ -24,6 +24,12 @@
                         HorizontalOptions="FillAndExpand"
                         Text="{Binding .}"
                         VerticalOptions="FillAndExpand" />
+                    <BoxView
+                        Margin="0"
+                        BackgroundColor="Red"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="EndAndExpand" />
                 </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>
