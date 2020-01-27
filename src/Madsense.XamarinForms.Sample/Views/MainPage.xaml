@@ -4,9 +4,28 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
-
+    <CollectionView
+        BackgroundColor="Blue"
+        ItemSizingStrategy="MeasureAllItems"
+        ItemsSource="{Binding Items}"
+        SelectionMode="Single">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="Red"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="Yellow"
+                        HorizontalOptions="FillAndExpand"
+                        Text="{Binding .}"
+                        VerticalOptions="FillAndExpand" />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
