@@ -4,9 +4,59 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <Grid
+        Padding="1"
+        BackgroundColor="Red"
+        ColumnSpacing="1"
+        RowSpacing="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="0"
+            BackgroundColor="Yellow" />
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="Yellow" />
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="2"
+            BackgroundColor="Yellow" />
+
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="0"
+            BackgroundColor="Yellow" />
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="1"
+            BackgroundColor="Yellow" />
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="2"
+            BackgroundColor="Yellow" />
+
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="0"
+            BackgroundColor="Yellow" />
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="1"
+            BackgroundColor="Yellow" />
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="2"
+            BackgroundColor="Yellow" />
+    </Grid>
 </ContentPage>
