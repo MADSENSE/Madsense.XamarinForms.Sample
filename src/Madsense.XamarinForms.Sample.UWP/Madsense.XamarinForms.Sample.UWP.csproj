@@ -157,7 +157,7 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Madsense.XamarinForms.Sample.Shared\Madsense.XamarinForms.Sample.Shared.csproj">
+    <ProjectReference Include="..\Madsense.XamarinForms.Sample.Shared\Madsense.XamarinForms.Sample.Shared.csproj">
       <Project>{062eb282-53d7-4f9c-89eb-653cc0173fb7}</Project>
       <Name>Madsense.XamarinForms.Sample.Shared</Name>
     </ProjectReference>
