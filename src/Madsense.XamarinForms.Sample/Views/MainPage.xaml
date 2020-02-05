@@ -4,9 +4,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <WebView>
+        <WebView.Source>
+            <HtmlWebViewSource BaseUrl="ms-appx-web:///" Html="{Binding Html}" />
+        </WebView.Source>
+    </WebView>
 
 </ContentPage>
