@@ -50,5 +50,9 @@
 	<string>Madsense.XamarinForms.Sample</string>
 	<key>CFBundleDisplayName</key>
 	<string>MADSENSE Sample</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>bellada.ttf</string>
+	</array>
 </dict>
 </plist>
