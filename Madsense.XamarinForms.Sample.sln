@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Madsense.XamarinForms.Sampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Madsense.XamarinForms.Sample", "src\Madsense.XamarinForms.Sample\Madsense.XamarinForms.Sample.csproj", "{23BAE88A-2ADF-4714-BAFE-68B43DAEAEF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Madsense.XamarinForms.Sample.Shared", "src\Madsense.XamarinForms.Sample.Shared\Madsense.XamarinForms.Sample.Shared.csproj", "{062EB282-53D7-4F9C-89EB-653CC0173FB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Madsense.XamarinForms.Sample.Shared", "src\Madsense.XamarinForms.Sample.Shared\Madsense.XamarinForms.Sample.Shared.csproj", "{062EB282-53D7-4F9C-89EB-653CC0173FB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +79,7 @@ Global
 		{95ECA309-C659-4A43-84AE-B0D2EE106D06}.AppStore|x86.Deploy.0 = Release|x86
 		{95ECA309-C659-4A43-84AE-B0D2EE106D06}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{95ECA309-C659-4A43-84AE-B0D2EE106D06}.Debug|Any CPU.Build.0 = Debug|x86
+		{95ECA309-C659-4A43-84AE-B0D2EE106D06}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{95ECA309-C659-4A43-84AE-B0D2EE106D06}.Debug|ARM.ActiveCfg = Debug|ARM
 		{95ECA309-C659-4A43-84AE-B0D2EE106D06}.Debug|ARM.Build.0 = Debug|ARM
 		{95ECA309-C659-4A43-84AE-B0D2EE106D06}.Debug|ARM.Deploy.0 = Debug|ARM
