@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
@@ -75,6 +75,10 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Madsense.XamarinForms.Sample.Shared\Madsense.XamarinForms.Sample.Shared.csproj">
+      <Project>{062eb282-53d7-4f9c-89eb-653cc0173fb7}</Project>
+      <Name>Madsense.XamarinForms.Sample.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Madsense.XamarinForms.Sample\Madsense.XamarinForms.Sample.csproj">
       <Project>{23BAE88A-2ADF-4714-BAFE-68B43DAEAEF8}</Project>
       <Name>Madsense.XamarinForms.Sample</Name>

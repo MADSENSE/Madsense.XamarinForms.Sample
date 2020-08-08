@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Madsense.XamarinForms.Sample.Shared\Madsense.XamarinForms.Sample.Shared.csproj" />
   </ItemGroup>
 </Project>
