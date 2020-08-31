@@ -4,9 +4,18 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button Command="{Binding AddItemCommand}" Text="Add Item" />
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}" />
+
+        <Label Grid.Row="2" Text="{Binding Items.Count, StringFormat='{}Count={0}'}" />
+    </Grid>
 
 </ContentPage>
