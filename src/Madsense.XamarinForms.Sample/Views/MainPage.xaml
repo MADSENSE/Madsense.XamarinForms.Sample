@@ -2,11 +2,44 @@
 <ContentPage
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:touchEffect="clr-namespace:TouchEffect;assembly=TouchEffect">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="Welcome to MADSENSE Sample!"
+            VerticalTextAlignment="Center" />
+
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding ItemsSource}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+            SelectionChangedCommand="{Binding ItemChangedCommand}"
+            SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Background="Red"
+                        HeightRequest="20"
+                        WidthRequest="20">
+                        <Frame.Effects>
+                            <touchEffect:TouchEff />
+                        </Frame.Effects>
+                        <Label
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding .}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
