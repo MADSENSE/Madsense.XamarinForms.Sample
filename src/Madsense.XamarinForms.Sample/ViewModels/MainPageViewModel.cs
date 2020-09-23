@@ -7,8 +7,19 @@ using Xamarin.Forms;
 namespace Madsense.XamarinForms.Sample.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
-    { public string SelectedItem { get; set; }
-        
+    {
+        private string _selectedItem;
+
+        public string SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged();
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICollection<string> ItemsSource { get; } = new List<string>{ "Test1", "Test2", "Test3" };
@@ -17,13 +28,12 @@ namespace Madsense.XamarinForms.Sample.ViewModels
 
         public MainPageViewModel()
         {
-            ItemChangedCommand = new Command(async () => await ItemChanged());
+            ItemChangedCommand = new Command(ItemChanged);
         }
 
-        private async Task ItemChanged()
+        private void ItemChanged()
         {
             var itemHasChanged = SelectedItem;
-            await Task.CompletedTask;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

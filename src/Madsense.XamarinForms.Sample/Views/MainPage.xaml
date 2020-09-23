@@ -20,7 +20,6 @@
             Grid.Row="1"
             ItemsSource="{Binding ItemsSource}"
             SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-            SelectionChangedCommand="{Binding ItemChangedCommand}"
             SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
