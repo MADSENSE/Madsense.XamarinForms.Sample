@@ -1,15 +1,22 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
+using Madsense.XamarinForms.Sample.Views;
+using Xamarin.Forms;
 
 namespace Madsense.XamarinForms.Sample.ViewModels
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class MainPageViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand NavigateModalCommand { get; }
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public MainPageViewModel()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            NavigateModalCommand = new Command(async () => await NavigateModal());
+        }
+
+        private async Task NavigateModal()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new ModalPage()));
         }
     }
 }

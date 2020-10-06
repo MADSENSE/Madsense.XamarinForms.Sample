@@ -1,4 +1,7 @@
-﻿namespace Madsense.XamarinForms.Sample
+﻿using Madsense.XamarinForms.Sample.Views;
+using Xamarin.Forms;
+
+namespace Madsense.XamarinForms.Sample
 {
 	public partial class App
 	{
@@ -6,8 +9,8 @@
 		{
 			InitializeComponent();
 
-			MainPage = new Views.MainPage();
-		}
+			MainPage = new NavigationPage(new MainPage());
+        }
 
 		protected override void OnStart ()
 		{

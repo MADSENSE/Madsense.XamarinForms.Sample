@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
+    x:Class="Madsense.XamarinForms.Sample.Views.ModalPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <NavigationPage.TitleView>
-        <Grid BackgroundColor="Blue" HorizontalOptions="FillAndExpand">
+        <Grid BackgroundColor="Red" HorizontalOptions="FillAndExpand">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Label
                 HorizontalTextAlignment="Start"
-                Text="MainPage"
+                Text="ModalPage"
                 TextColor="White"
                 VerticalTextAlignment="Center" />
             <Label
                 HorizontalTextAlignment="End"
-                Text="X"
+                Text="Y"
                 TextColor="White"
                 VerticalTextAlignment="Center" />
         </Grid>
@@ -24,9 +24,9 @@
 
     <Grid>
         <Button
-            Command="{Binding NavigateModalCommand}"
+            Command="{Binding PopModalCommand}"
             HorizontalOptions="Center"
-            Text="PushModal NavigationPage"
+            Text="PopModal NavigationPage"
             VerticalOptions="Center" />
     </Grid>
 </ContentPage>
