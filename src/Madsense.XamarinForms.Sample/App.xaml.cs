@@ -1,15 +1,30 @@
-﻿namespace Madsense.XamarinForms.Sample
+﻿using System.Globalization;
+
+namespace Madsense.XamarinForms.Sample
 {
 	public partial class App
 	{
-		public App ()
-		{
-			InitializeComponent();
+		public App()
+        {
+            // It works with en-US culture
+            //var culture = new CultureInfo("en-US");
+            //culture.NumberFormat.CurrencySymbol = "XAM";
+            //culture.NumberFormat.CurrencyDecimalSeparator = ";";
+            //culture.NumberFormat.NumberDecimalSeparator = ";";
+            //CultureInfo.CurrentUICulture = culture;
 
-			MainPage = new Views.MainPage();
+            // It doesn't work with a specific culture
+            var culture = new CultureInfo("es-ES");
+            culture.NumberFormat.CurrencySymbol = "XAM";
+            culture.NumberFormat.CurrencyDecimalSeparator = ";";
+            culture.NumberFormat.NumberDecimalSeparator = ";";
+            CultureInfo.CurrentUICulture = culture;
+
+            InitializeComponent();
+            MainPage = new Views.MainPage();
 		}
 
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

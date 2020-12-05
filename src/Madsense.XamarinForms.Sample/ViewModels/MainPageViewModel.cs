@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace Madsense.XamarinForms.Sample.ViewModels
 {
@@ -7,9 +6,6 @@ namespace Madsense.XamarinForms.Sample.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public decimal Number { get; } = 12.34M;
     }
 }

@@ -2,11 +2,21 @@
 <ContentPage
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:globalization="clr-namespace:System.Globalization;assembly=netstandard"
+    xmlns:local="clr-namespace:Madsense.XamarinForms.Sample.Resources;assembly=Madsense.XamarinForms.Sample">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <StackLayout Margin="10" Orientation="Vertical">
+        <Label FontSize="Subtitle" Text="Should use ';' as decimal separator and 'XAM' as currency symbol" />
 
+        <StackLayout Margin="10" Orientation="Vertical">
+            <Label Text="{Binding Number, StringFormat='Formatted Number: {0:N}'}" />
+            <Label Text="{Binding Number, StringFormat='Formatted Currency: {0:C}'}" />
+            <Label Text="{Binding Path=NumberFormat.NumberDecimalSeparator, Source={x:Static globalization:CultureInfo.CurrentUICulture}, StringFormat='CurrentUICulture.CurrencyDecimalSeparator: {0}'}" />
+            <Label Text="{Binding Path=NumberFormat.CurrencyDecimalSeparator, Source={x:Static globalization:CultureInfo.CurrentUICulture}, StringFormat='CurrentUICulture.CurrencyDecimalSeparator: {0}'}" />
+            <Label Text="{Binding Path=NumberFormat.CurrencySymbol, Source={x:Static globalization:CultureInfo.CurrentUICulture}, StringFormat='CurrentUICulture.CurrencySymbol: {0}'}" />
+            <Label Text="{Binding Source={x:Static local:Texts.CurrentLanguage}, StringFormat='CurrentLanguage from resx: {0}'}" />
+        </StackLayout>
+
+    </StackLayout>
 </ContentPage>
