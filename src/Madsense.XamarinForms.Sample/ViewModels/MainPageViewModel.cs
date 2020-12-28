@@ -9,8 +9,9 @@ namespace Madsense.XamarinForms.Sample.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public MvvmHelpers.ObservableRangeCollection<string> Items { get; } = new MvvmHelpers.ObservableRangeCollection<string>();
+        //public MvvmHelpers.ObservableRangeCollection<string> Items { get; } = new MvvmHelpers.ObservableRangeCollection<string>();
         //public System.Collections.ObjectModel.RangeObservableCollection<string> Items { get; } = new System.Collections.ObjectModel.RangeObservableCollection<string>();
+        public Xamarin.CommunityToolkit.ObjectModel.ObservableRangeCollection<string> Items { get; } = new Xamarin.CommunityToolkit.ObjectModel.ObservableRangeCollection<string>();
 
         public Command ClearItemsCommand { get; }
         public Command AddItemsCommand { get; }
