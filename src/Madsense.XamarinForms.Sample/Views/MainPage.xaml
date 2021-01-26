@@ -3,10 +3,51 @@
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Int32 x:Key="ZeroNumber">0</x:Int32>
+            <x:Int32 x:Key="MinusOneNumber">-1</x:Int32>
+            <x:Int32 x:Key="OneNumber">1</x:Int32>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <StackLayout>
+        <Label FontSize="Medium" Text="Gray is null;&#x0a;Yellow == 0;&#x0a;Red == -1;&#x0a;Green == 1" />
 
+        <Label
+            FontSize="Large"
+            HorizontalTextAlignment="Center"
+            Text="{Binding CurrentNumber}">
+            <Label.Triggers>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{x:Null}">
+                    <Setter Property="BackgroundColor" Value="Gray" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{StaticResource ZeroNumber}">
+                    <Setter Property="BackgroundColor" Value="Yellow" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{StaticResource MinusOneNumber}">
+                    <Setter Property="BackgroundColor" Value="Red" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{StaticResource OneNumber}">
+                    <Setter Property="BackgroundColor" Value="Green" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+
+        <Button Command="{Binding IncrementCommand}" Text="Increment" />
+        <Button Command="{Binding DecrementCommand}" Text="Decrement" />
+        <Button Command="{Binding ResetCommand}" Text="Reset" />
+    </StackLayout>
 </ContentPage>
