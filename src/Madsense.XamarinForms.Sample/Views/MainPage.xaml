@@ -12,12 +12,12 @@
     </ContentPage.Resources>
 
     <StackLayout>
-        <Label FontSize="Medium" Text="Gray is null;&#x0a;Yellow == 0;&#x0a;Red == -1;&#x0a;Green == 1" />
+        <Label FontSize="Medium" Text="Gray == null;&#x0a;Yellow == 0;&#x0a;Red == -1;&#x0a;Green == 1;" />
 
         <Label
             FontSize="Large"
             HorizontalTextAlignment="Center"
-            Text="{Binding CurrentNumber}">
+            Text="{Binding CurrentNumber, TargetNullValue='value is null and background should be Gray'}">
             <Label.Triggers>
                 <DataTrigger
                     Binding="{Binding CurrentNumber}"
