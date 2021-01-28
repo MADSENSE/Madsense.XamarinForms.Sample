@@ -11,6 +11,7 @@
         <RadioButton Content="Binding to Value1" Value="Value1" />
         <RadioButton Content="Binding to Value2" Value="Value2" />
         <RadioButton Content="Binding to Value3" Value="Value3" />
+        <RadioButton Content="Binding to Value4" Value="Value4" />
 
         <Label FontSize="Large" Text="Please select a Value above">
             <Label.Triggers>
@@ -31,6 +32,12 @@
                     TargetType="Label"
                     Value="Value3">
                     <Setter Property="Text" Value="{Binding Value3}" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value4">
+                    <Setter Property="Text" Value="{Binding Value4}" />
                 </DataTrigger>
             </Label.Triggers>
         </Label>
