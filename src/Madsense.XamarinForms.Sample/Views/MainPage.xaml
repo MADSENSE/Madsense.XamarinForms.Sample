@@ -3,10 +3,36 @@
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <StackLayout
+        Padding="10"
+        RadioButtonGroup.GroupName="SelectedValueGroup"
+        RadioButtonGroup.SelectedValue="{Binding SelectedValue, Mode=TwoWay}">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+        <RadioButton Content="Binding to Value1" Value="Value1" />
+        <RadioButton Content="Binding to Value2" Value="Value2" />
+        <RadioButton Content="Binding to Value3" Value="Value3" />
 
+        <Label FontSize="Large" Text="Please select a Value above">
+            <Label.Triggers>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value1">
+                    <Setter Property="Text" Value="{Binding Value1}" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value2">
+                    <Setter Property="Text" Value="{Binding Value2}" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value3">
+                    <Setter Property="Text" Value="{Binding Value3}" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+    </StackLayout>
 </ContentPage>
