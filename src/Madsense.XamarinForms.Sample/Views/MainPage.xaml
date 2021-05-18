@@ -2,11 +2,87 @@
 <ContentPage
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:Madsense.XamarinForms.Sample.Effects;assembly=Madsense.XamarinForms.Sample">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <ScrollView>
+        <StackLayout Padding="20" Orientation="Vertical">
+            <Label Text="Clipped Grid with CornerRadiusEffect CornerRadius='10'" />
+            <Grid
+                effects:CornerRadiusEffect.CornerRadius="10"
+                BackgroundColor="Blue"
+                HeightRequest="100"
+                WidthRequest="100" />
 
+            <Label Text="Clipped Grid with RoundRectangleGeometry CornerRadius='10' Rect='0,0,100,100'" />
+            <Grid
+                BackgroundColor="Blue"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="100">
+                <Grid.Clip>
+                    <RoundRectangleGeometry CornerRadius="10" Rect="0,0,100,100" />
+                </Grid.Clip>
+            </Grid>
+
+            <Label Text="Clipped Grid with EllipseGeometry Center='50,50' RadiusX='50' RadiusY='50'" />
+            <Grid
+                BackgroundColor="Blue"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="100">
+                <Grid.Clip>
+                    <EllipseGeometry
+                        Center="50,50"
+                        RadiusX="50"
+                        RadiusY="50" />
+                </Grid.Clip>
+            </Grid>
+
+            <Label Text="Path RoundRectangleGeometry CornerRadius='10' Rect='0,0,100,100'" />
+            <Path
+                Fill="Blue"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Stroke="Blue"
+                StrokeThickness="1"
+                VerticalOptions="Center"
+                WidthRequest="100">
+                <Path.Data>
+                    <RoundRectangleGeometry CornerRadius="10" Rect="0,0,100,100" />
+                </Path.Data>
+            </Path>
+
+            <Label Text="Clipped Image using GeometryGroup" />
+            <Image
+                BackgroundColor="Blue"
+                HeightRequest="250"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="250">
+                <Image.Clip>
+                    <GeometryGroup FillRule="EvenOdd">
+                        <EllipseGeometry
+                            Center="150, 150"
+                            RadiusX="100"
+                            RadiusY="100" />
+                        <EllipseGeometry
+                            Center="250, 150"
+                            RadiusX="100"
+                            RadiusY="100" />
+                        <EllipseGeometry
+                            Center="150, 250"
+                            RadiusX="100"
+                            RadiusY="100" />
+                        <EllipseGeometry
+                            Center="250, 250"
+                            RadiusX="100"
+                            RadiusY="100" />
+                    </GeometryGroup>
+                </Image.Clip>
+            </Image>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
