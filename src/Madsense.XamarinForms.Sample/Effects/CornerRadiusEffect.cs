@@ -4,20 +4,13 @@ using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 
-[assembly: ResolutionGroupName("madsense")]
-[assembly: ExportEffect(typeof(Madsense.XamarinForms.Sample.Effects.FormsCornerRadiusEffect), nameof(Madsense.XamarinForms.Sample.Effects.CornerRadiusEffect))]
 namespace Madsense.XamarinForms.Sample.Effects
 {
-    public class CornerRadiusEffect : RoutingEffect
+    public class CornerRadiusEffect : NullEffect
     {
         public static readonly BindableProperty CornerRadiusProperty =
             BindableProperty.CreateAttached("CornerRadius", typeof(CornerRadius), typeof(CornerRadiusEffect),
                 default(CornerRadius), propertyChanged: TryAttachEffect);
-
-        public CornerRadiusEffect() : base($"madsense.{nameof(CornerRadiusEffect)}")
-        {
-
-        }
 
         public static CornerRadius GetCornerRadius(BindableObject bindable)
             => (CornerRadius)bindable.GetValue(CornerRadiusProperty);
@@ -44,10 +37,7 @@ namespace Madsense.XamarinForms.Sample.Effects
             if (!element.Effects.OfType<CornerRadiusEffect>().Any())
                 element.Effects.Add(new CornerRadiusEffect());
         }
-    }
 
-    public class FormsCornerRadiusEffect : NullEffect
-    {
         protected override void OnAttached()
         {
             if (Element is VisualElement elementView)
@@ -75,11 +65,12 @@ namespace Madsense.XamarinForms.Sample.Effects
 
         private void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == CornerRadiusEffect.CornerRadiusProperty.PropertyName)
+            if (e.PropertyName == CornerRadiusProperty.PropertyName)
             {
                 UpdateCornerRadius();
             }
         }
+
         private void UpdateCornerRadius()
         {
             if (!(Element is VisualElement elementView))
