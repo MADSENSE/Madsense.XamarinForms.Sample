@@ -10,34 +10,39 @@ namespace Madsense.XamarinForms.Sample.Effects
 {
     public class CornerRadiusEffect : RoutingEffect
     {
+        public static readonly BindableProperty CornerRadiusProperty =
+            BindableProperty.CreateAttached("CornerRadius", typeof(CornerRadius), typeof(CornerRadiusEffect),
+                default(CornerRadius), propertyChanged: TryAttachEffect);
+
         public CornerRadiusEffect() : base($"madsense.{nameof(CornerRadiusEffect)}")
         {
 
         }
 
-        public static readonly BindableProperty CornerRadiusProperty =
-            BindableProperty.CreateAttached("CornerRadius", typeof(CornerRadius), typeof(CornerRadiusEffect), new CornerRadius(0),
-                propertyChanged: OnCornerRadiusChanged);
-
         public static CornerRadius GetCornerRadius(BindableObject bindable)
             => (CornerRadius)bindable.GetValue(CornerRadiusProperty);
+
         public static void SetCornerRadius(BindableObject bindable, CornerRadius value)
             => bindable.SetValue(CornerRadiusProperty, value);
-        
-        private static void OnCornerRadiusChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            AttachEffect(bindable);
-        } 
 
-        private static void AttachEffect(BindableObject bindable)
+        private static void TryAttachEffect(BindableObject bindable, object oldValue, object newValue)
         {
             if (!(bindable is VisualElement element))
                 return;
 
-            if (element.Effects.OfType<CornerRadiusEffect>().Any())
+            var cornerRadiusEffects = element.Effects.OfType<CornerRadiusEffect>();
+
+            if (GetCornerRadius(bindable) == default)
+            {
+                foreach (var cornerRadiusEffect in cornerRadiusEffects)
+                {
+                    element.Effects.Remove(cornerRadiusEffect);
+                }
                 return;
-            
-            element.Effects.Add(new CornerRadiusEffect());
+            }
+
+            if (!element.Effects.OfType<CornerRadiusEffect>().Any())
+                element.Effects.Add(new CornerRadiusEffect());
         }
     }
 
@@ -45,57 +50,73 @@ namespace Madsense.XamarinForms.Sample.Effects
     {
         protected override void OnAttached()
         {
-            if (Element is VisualElement view)
+            if (Element is VisualElement elementView)
             {
-                view.SizeChanged += OnElementSizeChanged;
-                view.PropertyChanged += OnElementPropertyChanged;
-                UpdateClip();
+                elementView.SizeChanged += OnElementSizeChanged;
+                elementView.PropertyChanged += OnElementPropertyChanged;
+                CreateClip(elementView);
             }
-
-            base.OnAttached();
         }
 
         protected override void OnDetached()
         {
-            if (Element is VisualElement view)
+            if (Element is VisualElement elementView)
             {
-                view.SizeChanged -= OnElementSizeChanged;
-                view.PropertyChanged -= OnElementPropertyChanged;
+                elementView.SizeChanged -= OnElementSizeChanged;
+                elementView.PropertyChanged -= OnElementPropertyChanged;
+                elementView.Clip = null;
             }
-
-            base.OnDetached();
         }
 
         private void OnElementSizeChanged(object sender, EventArgs e)
         {
-            UpdateClip();
+            UpdateSize();
         }
 
         private void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == CornerRadiusEffect.CornerRadiusProperty.PropertyName)
             {
-                UpdateClip();
+                UpdateCornerRadius();
             }
         }
-
-        private void UpdateClip()
+        private void UpdateCornerRadius()
         {
-            if (!(Element is VisualElement view))
+            if (!(Element is VisualElement elementView))
                 return;
 
-            var rect = new Rect(0, 0, view.Width, view.Height);
-            var cornerRadius = CornerRadiusEffect.GetCornerRadius(Element);
-            
-            if (view.Clip is RoundRectangleGeometry roundRectangleGeometry)
+            if (elementView.Clip is RoundRectangleGeometry roundRectangleGeometry)
             {
-                roundRectangleGeometry.Rect = rect;
+                var cornerRadius = CornerRadiusEffect.GetCornerRadius(Element);
                 roundRectangleGeometry.CornerRadius = cornerRadius;
             }
             else
             {
-                view.Clip = new RoundRectangleGeometry(cornerRadius, rect);
+                CreateClip(elementView);
             }
+        }
+
+        private void UpdateSize()
+        {
+            if (!(Element is VisualElement elementView))
+                return;
+
+            if (elementView.Clip is RoundRectangleGeometry roundRectangleGeometry)
+            {
+                var rect = new Rect(0, 0, elementView.Width, elementView.Height);
+                roundRectangleGeometry.Rect = rect;
+            }
+            else
+            {
+                CreateClip(elementView);
+            }
+        }
+
+        private static void CreateClip(VisualElement elementView)
+        {
+            var cornerRadius = CornerRadiusEffect.GetCornerRadius(elementView);
+            var rect = new Rect(0, 0, elementView.Width, elementView.Height);
+            elementView.Clip = new RoundRectangleGeometry(cornerRadius, rect);
         }
     }
 }
