@@ -34,7 +34,7 @@ namespace Madsense.XamarinForms.Sample.Effects
                 return;
             }
 
-            if (!element.Effects.OfType<CornerRadiusEffect>().Any())
+            if (!cornerRadiusEffects.Any())
                 element.Effects.Add(new CornerRadiusEffect());
         }
 
