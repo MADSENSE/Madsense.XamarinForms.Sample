@@ -4,9 +4,38 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Label
+    <Grid
         HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+        VerticalOptions="Center"
+        WidthRequest="200">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Grid.Column="1"
+            HorizontalOptions="Center"
+            LineBreakMode="TailTruncation"
+            Text="{Binding Text}"
+            VerticalOptions="Center" />
+
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Command="{Binding ChangeLongTextCommand}"
+            Text="Switch to long text" />
+
+        <Button
+            Grid.Row="1"
+            Grid.Column="2"
+            Command="{Binding ChangeShortTextCommand}"
+            Text="Switch to short text" />
+    </Grid>
 
 </ContentPage>
