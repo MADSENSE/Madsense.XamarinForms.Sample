@@ -4,38 +4,46 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Grid
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        WidthRequest="200">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
-
-        <Label
-            Grid.Column="1"
-            HorizontalOptions="Center"
-            LineBreakMode="TailTruncation"
-            Text="{Binding Text}"
-            VerticalOptions="Center" />
-
-        <Button
-            Grid.Row="1"
+        <Grid
             Grid.Column="0"
-            Command="{Binding ChangeLongTextCommand}"
-            Text="Switch to long text" />
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <Button
-            Grid.Row="1"
-            Grid.Column="2"
-            Command="{Binding ChangeShortTextCommand}"
-            Text="Switch to short text" />
+            <StackLayout
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="TailTruncation"
+                    Text="{Binding Text}"
+                    VerticalOptions="Center" />
+
+                <Button BackgroundColor="Red" Text="Button" />
+
+            </StackLayout>
+
+            <Button
+                Grid.Column="0"
+                Command="{Binding ChangeLongTextCommand}"
+                Text="Switch to long text" />
+
+            <Button
+                Grid.Column="2"
+                Command="{Binding ChangeShortTextCommand}"
+                Text="Switch to short text" />
+        </Grid>
+
+
     </Grid>
-
 </ContentPage>
