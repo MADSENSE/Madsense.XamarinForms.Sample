@@ -39,7 +39,6 @@
             Grid.Row="2"
             BackgroundColor="Yellow"
             HorizontalOptions="Start"
-            HorizontalTextAlignment="Start"
             LineBreakMode="TailTruncation"
             Text="{Binding Text}"
             VerticalTextAlignment="Center" />
@@ -59,7 +58,6 @@
             Grid.Row="6"
             BackgroundColor="Yellow"
             HorizontalOptions="Start"
-            HorizontalTextAlignment="Center"
             LineBreakMode="TailTruncation"
             Text="{Binding Text}"
             VerticalTextAlignment="Center" />
