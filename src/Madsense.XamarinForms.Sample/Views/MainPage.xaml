@@ -4,9 +4,65 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal">
+            <Picker Title="Text Length" SelectedItem="{Binding Size}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int32}">
+                        <x:Int32>1</x:Int32>
+                        <x:Int32>10</x:Int32>
+                        <x:Int32>20</x:Int32>
+                        <x:Int32>30</x:Int32>
+                        <x:Int32>50</x:Int32>
+                        <x:Int32>100</x:Int32>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+
+        <Label Grid.Row="1" Text="Label below in a ROW with FIXED size" />
+        <Label
+            Grid.Row="2"
+            BackgroundColor="Yellow"
+            HorizontalOptions="Start"
+            HorizontalTextAlignment="Start"
+            LineBreakMode="TailTruncation"
+            Text="{Binding Text}"
+            VerticalTextAlignment="Center" />
+
+
+        <Label Grid.Row="3" Text="Label below in a ROW with AUTO size" />
+        <Label
+            Grid.Row="4"
+            BackgroundColor="Yellow"
+            HorizontalOptions="Start"
+            LineBreakMode="TailTruncation"
+            Text="{Binding Text}"
+            VerticalTextAlignment="Center" />
+
+        <Label Grid.Row="5" Text="Label below in a ROW with * size" />
+        <Label
+            Grid.Row="6"
+            BackgroundColor="Yellow"
+            HorizontalOptions="Start"
+            HorizontalTextAlignment="Center"
+            LineBreakMode="TailTruncation"
+            Text="{Binding Text}"
+            VerticalTextAlignment="Center" />
+    </Grid>
 
 </ContentPage>
