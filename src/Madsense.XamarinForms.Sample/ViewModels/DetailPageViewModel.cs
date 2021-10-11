@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace Madsense.XamarinForms.Sample.ViewModels
 {
-    public class ModalPageViewModel
+    public class DetailPageViewModel
     {
         public ObservableCollection<ItemViewModel> Items { get; } = new ObservableCollection<ItemViewModel>();
         public ICommand CloseCommand { get; }
 
-        public ModalPageViewModel()
+        public DetailPageViewModel()
         {
             CloseCommand = new Command(Close);
 
@@ -21,7 +21,7 @@ namespace Madsense.XamarinForms.Sample.ViewModels
 
         private async void Close()
         {
-            await Application.Current.MainPage.Navigation.PopModalAsync();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 

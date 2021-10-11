@@ -4,12 +4,13 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Madsense.XamarinForms.Sample.ViewModels;assembly=Madsense.XamarinForms.Sample"
+    Title="Main"
     x:DataType="{x:Type viewModels:MainPageViewModel}">
 
     <Grid RowDefinitions="Auto,Auto,*">
         <Button
             Grid.Row="0"
-            Command="{Binding OpenModalCommand}"
+            Command="{Binding NavigateCommand}"
             Text="Navigate" />
         <Button
             Grid.Row="1"

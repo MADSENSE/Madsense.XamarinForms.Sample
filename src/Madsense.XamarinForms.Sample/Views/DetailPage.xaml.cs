@@ -4,12 +4,12 @@ using Xamarin.Forms.Xaml;
 namespace Madsense.XamarinForms.Sample.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ModalPage : ContentPage
+    public partial class DetailPage : ContentPage
     {
-        public ModalPage()
+        public DetailPage()
         {
             InitializeComponent();
-            BindingContext = new ViewModels.ModalPageViewModel();
+            BindingContext = new ViewModels.DetailPageViewModel();
         }
     }
 }

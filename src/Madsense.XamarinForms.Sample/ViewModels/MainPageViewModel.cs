@@ -10,18 +10,18 @@ namespace Madsense.XamarinForms.Sample.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand OpenModalCommand { get; }
+        public ICommand NavigateCommand { get; }
         public ICommand GarbageCollectCommand { get; }
 
         public MainPageViewModel()
         {
-            OpenModalCommand = new Command(OpenModal);
+            NavigateCommand = new Command(Navigate);
             GarbageCollectCommand = new Command(GarbageCollect);
         }
 
-        private async void OpenModal()
+        private async void Navigate()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new ModalPage()));
+            await Application.Current.MainPage.Navigation.PushAsync(new DetailPage());
         }
 
         private void GarbageCollect()

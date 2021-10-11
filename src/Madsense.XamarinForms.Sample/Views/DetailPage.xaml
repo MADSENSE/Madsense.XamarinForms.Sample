@@ -1,17 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Madsense.XamarinForms.Sample.Views.ModalPage"
+    x:Class="Madsense.XamarinForms.Sample.Views.DetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Madsense.XamarinForms.Sample.ViewModels;assembly=Madsense.XamarinForms.Sample"
-    x:DataType="{x:Type viewModels:ModalPageViewModel}">
-    <NavigationPage.TitleView>
-        <Grid>
-            <Button Command="{Binding CloseCommand}" Text="Close" />
-        </Grid>
-    </NavigationPage.TitleView>
-    <Grid>
-        <CollectionView ItemsSource="{Binding Items}">
+    Title="Detail"
+    x:DataType="{x:Type viewModels:DetailPageViewModel}">
+    <Grid RowDefinitions="Auto, *">
+        <Button Command="{Binding CloseCommand}" Text="Back" />
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type viewModels:ItemViewModel}">
                     <Label Text="{Binding Name}" />
