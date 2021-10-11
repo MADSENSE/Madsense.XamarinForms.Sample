@@ -2,11 +2,18 @@
 <ContentPage
     x:Class="Madsense.XamarinForms.Sample.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Madsense.XamarinForms.Sample.ViewModels;assembly=Madsense.XamarinForms.Sample"
+    x:DataType="{x:Type viewModels:MainPageViewModel}">
 
-    <Label
-        HorizontalOptions="Center"
-        Text="Welcome to MADSENSE Sample!"
-        VerticalOptions="Center" />
-
+    <Grid RowDefinitions="Auto,Auto,*">
+        <Button
+            Grid.Row="0"
+            Command="{Binding OpenModalCommand}"
+            Text="Navigate" />
+        <Button
+            Grid.Row="1"
+            Command="{Binding GarbageCollectCommand}"
+            Text="GC Collect" />
+    </Grid>
 </ContentPage>
