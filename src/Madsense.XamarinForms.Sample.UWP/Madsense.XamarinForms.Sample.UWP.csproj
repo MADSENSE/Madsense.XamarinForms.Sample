@@ -156,7 +156,7 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.12</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Madsense.XamarinForms.Sample.Shared\Madsense.XamarinForms.Sample.Shared.csproj">
