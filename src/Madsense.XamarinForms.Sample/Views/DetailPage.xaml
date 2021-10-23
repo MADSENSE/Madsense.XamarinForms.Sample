@@ -6,9 +6,28 @@
     xmlns:viewModels="clr-namespace:Madsense.XamarinForms.Sample.ViewModels;assembly=Madsense.XamarinForms.Sample"
     Title="Detail"
     x:DataType="{x:Type viewModels:DetailPageViewModel}">
-    <Grid RowDefinitions="Auto, *">
-        <Button Command="{Binding CloseCommand}" Text="Back" />
-        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, *">
+        <Button
+            Grid.Row="0"
+            Command="{Binding CloseCommand}"
+            Text="Back" />
+        <Button
+            Grid.Row="1"
+            Command="{Binding NewItemsCommand}"
+            Text="New Empty ItemsSource" />
+        <Button
+            Grid.Row="2"
+            Command="{Binding PopulateItemsCommand}"
+            Text="Populate ItemsSource" />
+        <Button
+            Grid.Row="3"
+            Command="{Binding ClearItemsCommand}"
+            Text="Clear ItemsSource" />
+        <Button
+            Grid.Row="4"
+            Command="{Binding GarbageCollectCommand}"
+            Text="Force GC" />
+        <CollectionView Grid.Row="5" ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type viewModels:ItemViewModel}">
                     <Label Text="{Binding Name}" />
