@@ -27,6 +27,10 @@ namespace Madsense.XamarinForms.Sample.ViewModels
         private void GarbageCollect()
         {
             System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
